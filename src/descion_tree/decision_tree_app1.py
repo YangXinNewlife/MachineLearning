@@ -55,8 +55,8 @@ class DecisionTreeApp1(object):
         index列为value的数据集【该数据集需要排除index列】
     """
     def split_data_set(self, data_set, index, value):
-        retDataSet = []
-        for featVec in dataSet:
+        ret_data_set = []
+        for featVec in data_set:
             # index列为value的数据集【该数据集需要排除index列】
             # 判断index列的值是否为value
             if featVec[index] == value:
@@ -84,11 +84,11 @@ class DecisionTreeApp1(object):
                 reducedFeatVec.extend(featVec[index + 1:])
                 # [index+1:]表示从跳过 index 的 index+1行，取接下来的数据
                 # 收集结果值 index列为value的行【该行需要排除index列】
-                retDataSet.append(reducedFeatVec)
-        return retDataSet
+                ret_data_set.append(reducedFeatVec)
+        return ret_data_set
 
 
-    def chooseBestFeatureToSplit(dataSet):
+    def choose_best_feature_to_split(self, data_set):
         """chooseBestFeatureToSplit(选择最好的特征)
 
         Args:
@@ -99,31 +99,31 @@ class DecisionTreeApp1(object):
 
         # -----------选择最优特征的第一种方式 start------------------------------------
         # 求第一行有多少列的 Feature, 最后一列是label列嘛
-        numFeatures = len(dataSet[0]) - 1
+        num_features = len(data_set[0])  - 1
         # label的信息熵
-        baseEntropy = calcShannonEnt(dataSet)
+        base_entropy = self.calc_shannon_ent(data_set)
         # 最优的信息增益值, 和最优的Featurn编号
-        bestInfoGain, bestFeature = 0.0, -1
+        best_info_gain, best_feature = 0.0, -1
         # iterate over all the features
-        for i in range(numFeatures):
+        for i in range(num_features):
             # create a list of all the examples of this feature
             # 获取每一个实例的第i+1个feature，组成list集合
-            featList = [example[i] for example in dataSet]
+            feat_list = [example[i] for example in data_set]
             # get a set of unique values
             # 获取剔重后的集合，使用set对list数据进行去重
-            uniqueVals = set(featList)
+            unique_vals = set(feat_list)
             # 创建一个临时的信息熵
-            newEntropy = 0.0
+            new_entropy = 0.0
             # 遍历某一列的value集合，计算该列的信息熵
             # 遍历当前特征中的所有唯一属性值，对每个唯一属性值划分一次数据集，计算数据集的新熵值，并对所有唯一特征值得到的熵求和。
-            for value in uniqueVals:
-                subDataSet = splitDataSet(dataSet, i, value)
-                prob = len(subDataSet) / float(len(dataSet))
-                newEntropy += prob * calcShannonEnt(subDataSet)
+            for value in unique_vals:
+                subDataSet = self.split_data_set(data_set, i, value)
+                prob = len(subDataSet) / float(len(data_set))
+                new_entropy += prob * self.calc_shannon_ent(subDataSet)
             # gain[信息增益]: 划分数据集前后的信息变化， 获取信息熵最大的值
             # 信息增益是熵的减少或者是数据无序度的减少。最后，比较所有特征中的信息增益，返回最好特征划分的索引值。
-            infoGain = baseEntropy - newEntropy
-            print('infoGain=', infoGain, 'bestFeature=', i, baseEntropy, newEntropy)
+            infoGain = base_entropy - new_entropy
+            print('infoGain=', infoGain, 'bestFeature=', i, base_entropy, new_entropy)
             if (infoGain > bestInfoGain):
                 bestInfoGain = infoGain
                 bestFeature = i
@@ -152,7 +152,7 @@ class DecisionTreeApp1(object):
         # # -----------选择最优特征的第二种方式 end------------------------------------
 
 
-    def majorityCnt(classList):
+    def majority_cnt(self, class_list):
         """majorityCnt(选择出现次数最多的一个结果)
 
         Args:
@@ -161,15 +161,15 @@ class DecisionTreeApp1(object):
             bestFeature 最优的特征列
         """
         # -----------majorityCnt的第一种方式 start------------------------------------
-        classCount = {}
-        for vote in classList:
-            if vote not in classCount.keys():
-                classCount[vote] = 0
-            classCount[vote] += 1
+        class_count = {}
+        for vote in class_list:
+            if vote not in class_count.keys():
+                class_count[vote] = 0
+                class_count[vote] += 1
         # 倒叙排列classCount得到一个字典集合，然后取出第一个就是结果（yes/no），即出现次数最多的结果
-        sortedClassCount = sorted(classCount.iteritems(), key=operator.itemgetter(1), reverse=True)
+        sorted_class_count = sorted(class_count.iteritems(), key=operator.itemgetter(1), reverse=True)
         # print 'sortedClassCount:', sortedClassCount
-        return sortedClassCount[0][0]
+        return sorted_class_count[0][0]
         # -----------majorityCnt的第一种方式 end------------------------------------
 
         # # -----------majorityCnt的第二种方式 start------------------------------------
@@ -178,40 +178,40 @@ class DecisionTreeApp1(object):
         # # -----------majorityCnt的第二种方式 end------------------------------------
 
 
-    def createTree(dataSet, labels):
-        classList = [example[-1] for example in dataSet]
+    def createTree(self, data_set, labels):
+        class_list = [example[-1] for example in data_set]
         # 如果数据集的最后一列的第一个值出现的次数=整个集合的数量，也就说只有一个类别，就只直接返回结果就行
         # 第一个停止条件：所有的类标签完全相同，则直接返回该类标签。
         # count() 函数是统计括号中的值在list中出现的次数
-        if classList.count(classList[0]) == len(classList):
-            return classList[0]
+        if class_list.count(class_list[0]) == len(class_list):
+            return class_list[0]
         # 如果数据集只有1列，那么最初出现label次数最多的一类，作为结果
         # 第二个停止条件：使用完了所有特征，仍然不能将数据集划分成仅包含唯一类别的分组。
-        if len(dataSet[0]) == 1:
-            return majorityCnt(classList)
+        if len(data_set[0]) == 1:
+            return self.majority_cnt(class_list)
 
         # 选择最优的列，得到最优列对应的label含义
-        bestFeat = chooseBestFeatureToSplit(dataSet)
+        best_feat = self.choose_best_feature_to_split(data_set)
         # 获取label的名称
-        bestFeatLabel = labels[bestFeat]
+        best_feat_label = labels[best_feat]
         # 初始化myTree
-        myTree = {bestFeatLabel: {}}
+        myTree = {best_feat_label: {}}
         # 注：labels列表是可变对象，在PYTHON函数中作为参数时传址引用，能够被全局修改
         # 所以这行代码导致函数外的同名变量被删除了元素，造成例句无法执行，提示'no surfacing' is not in list
-        del (labels[bestFeat])
+        del (labels[best_feat])
         # 取出最优列，然后它的branch做分类
-        featValues = [example[bestFeat] for example in dataSet]
-        uniqueVals = set(featValues)
-        for value in uniqueVals:
+        feat_values = [example[best_feat] for example in data_set]
+        unique_vals = set(feat_values)
+        for value in unique_vals:
             # 求出剩余的标签label
             subLabels = labels[:]
             # 遍历当前选择特征包含的所有属性值，在每个数据集划分上递归调用函数createTree()
-            myTree[bestFeatLabel][value] = createTree(splitDataSet(dataSet, bestFeat, value), subLabels)
+            myTree[best_feat_label][value] = self.create_tree(self.split_data_set(data_set, best_feat, value), subLabels)
             # print 'myTree', value, myTree
         return myTree
 
 
-    def classify(inputTree, featLabels, testVec):
+    def classify(self, input_tree, feat_labels, test_vec):
         """classify(给输入的节点，进行分类)
 
         Args:
@@ -222,46 +222,45 @@ class DecisionTreeApp1(object):
             classLabel 分类的结果值，需要映射label才能知道名称
         """
         # 获取tree的根节点对于的key值
-        firstStr = inputTree.keys()[0]
+        first_str = input_tree.keys()[0]
         # 通过key得到根节点对应的value
-        secondDict = inputTree[firstStr]
+        second_dict = input_tree[first_str]
         # 判断根节点名称获取根节点在label中的先后顺序，这样就知道输入的testVec怎么开始对照树来做分类
-        featIndex = featLabels.index(firstStr)
+        feat_index = feat_labels.index(first_str)
         # 测试数据，找到根节点对应的label位置，也就知道从输入的数据的第几位来开始分类
-        key = testVec[featIndex]
-        valueOfFeat = secondDict[key]
-        print('+++', firstStr, 'xxx', secondDict, '---', key, '>>>', valueOfFeat)
+        key = test_vec[feat_index]
+        value_of_feat = second_dict[key]
+        print('+++', first_str, 'xxx', second_dict, '---', key, '>>>', value_of_feat)
         # 判断分枝是否结束: 判断valueOfFeat是否是dict类型
-        if isinstance(valueOfFeat, dict):
-            classLabel = classify(valueOfFeat, featLabels, testVec)
+        if isinstance(value_of_feat, dict):
+            class_label = self.classify(value_of_feat, feat_labels, test_vec)
         else:
-            classLabel = valueOfFeat
-        return classLabel
+            class_label = value_of_feat
+        return class_label
 
-
-    def storeTree(inputTree, filename):
+    def store_tree(self, input_tree, file_name):
         import pickle
         # -------------- 第一种方法 start --------------
-        fw = open(filename, 'wb')
-        pickle.dump(inputTree, fw)
+        fw = open(file_name, 'wb')
+        pickle.dump(input_tree, fw)
         fw.close()
         # -------------- 第一种方法 end --------------
 
         # -------------- 第二种方法 start --------------
-        with open(filename, 'wb') as fw:
-            pickle.dump(inputTree, fw)
+        with open(file_name, 'wb') as fw:
+            pickle.dump(input_tree, fw)
         # -------------- 第二种方法 start --------------
 
 
-    def grabTree(filename):
+    def grab_tree(self, file_name):
         import pickle
-        fr = open(filename, 'rb')
+        fr = open(file_name, 'rb')
         return pickle.load(fr)
 
 
-    def fishTest():
+    def fish_test(self):
         # 1.创建数据和结果标签
-        myDat, labels = createDataSet()
+        myDat, labels = self.create_data_set()
         # print myDat, labels
 
         # 计算label分类标签的香农熵
@@ -275,19 +274,19 @@ class DecisionTreeApp1(object):
         # print chooseBestFeatureToSplit(myDat)
 
         import copy
-        myTree = createTree(myDat, copy.deepcopy(labels))
+        myTree = self.create_tree(myDat, copy.deepcopy(labels))
         print(myTree)
         # [1, 1]表示要取的分支上的节点位置，对应的结果值
-        print(classify(myTree, labels, [1, 1]))
+        print(self.classify(myTree, labels, [1, 1]))
 
         # 获得树的高度
-        print(get_tree_height(myTree))
+        print(self.get_tree_height(myTree))
 
         # 画图可视化展现
         dtPlot.createPlot(myTree)
 
 
-    def ContactLensesTest():
+    def ContactLensesTest(self):
         """
         Desc:
             预测隐形眼镜的测试代码
@@ -304,13 +303,13 @@ class DecisionTreeApp1(object):
         # 得到数据的对应的 Labels
         lensesLabels = ['age', 'prescript', 'astigmatic', 'tearRate']
         # 使用上面的创建决策树的代码，构造预测隐形眼镜的决策树
-        lensesTree = createTree(lenses, lensesLabels)
+        lensesTree = self.create_tree(lenses, lensesLabels)
         print(lensesTree)
         # 画图可视化展现
         dtPlot.createPlot(lensesTree)
 
 
-    def get_tree_height(tree):
+    def get_tree_height(self, tree):
         """
          Desc:
             递归获得决策树的高度
@@ -328,7 +327,7 @@ class DecisionTreeApp1(object):
         # 遍历子树, 获得子树的最大高度
         max_height = 0
         for child_tree in child_trees:
-            child_tree_height = get_tree_height(child_tree)
+            child_tree_height = self.get_tree_height(child_tree)
 
             if child_tree_height > max_height:
                 max_height = child_tree_height
@@ -337,6 +336,7 @@ class DecisionTreeApp1(object):
 
 
 if __name__ == "__main__":
-    fishTest()
+    decison_tree = DecisionTreeApp1()
+    decison_tree.fishTest()
 
 

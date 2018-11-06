@@ -18,6 +18,7 @@ __author__ = 'yangxin'
 就是每次K个最邻近的结果。
 """
 
+
 class KNearestNeighbor(object):
 
     def __init__(self):
