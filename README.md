@@ -1,12 +1,26 @@
 # Machine Learning
 python 机器学习项目代码
 
-# Update Time
-2018-10-18
+# Author
+* yangxin812716131@163.com
 
-# 项目内容
+# Modules
 * k-NearestNeighbor KNN/K临近算法
 * Decision Tree 决策树
+
+# List
+## KNN(K-NearestNeighbor)
+```code
+
+```
+
+## DescionTree(DTree)
+```code
+
+```
+
+# Projects
+
 
 
 
