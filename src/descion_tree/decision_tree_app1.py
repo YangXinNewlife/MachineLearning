@@ -8,11 +8,13 @@ __author__ = 'yangxin'
 
 class DecisionTreeApp1(object):
 
+    # 创建数据集
     def create_data_set(self):
         data_set = [[1, 1, 'yes'], [1, 1, 'yes'], [1, 0, 'no'], [0, 1, 'no'], [0, 1, 'no']]
         labels = ['no surfacing', 'flippers']
         return data_set, labels
 
+    # 计算信息增益，香农熵值
     def calc_shannon_ent(self, data_set):
         num_entries = len(data_set)
         label_counts = {}
@@ -27,6 +29,7 @@ class DecisionTreeApp1(object):
             shannon_ent -= prob * log(prob, 2)
         return shannon_ent
 
+    # 切分数据集
     def split_data_set(self, data_set, index, value):
         ret_data_set = []
         for featVec in data_set:
@@ -43,6 +46,7 @@ class DecisionTreeApp1(object):
                 ret_data_set.append(reducedFeatVec)
         return ret_data_set
 
+    # 选择最有特征切分
     def choose_best_feature_to_split(self, data_set):
         # -----------选择最优特征的第一种方式 start------------------------------------
         # 求第一行有多少列的 Feature, 最后一列是label列嘛
@@ -76,6 +80,7 @@ class DecisionTreeApp1(object):
                 bestFeature = i
         return bestFeature
 
+    # 最优选择器
     def majority_cnt(self, class_list):
         # -----------majorityCnt的第一种方式 start------------------------------------
         class_count = {}
@@ -88,6 +93,7 @@ class DecisionTreeApp1(object):
         # print 'sortedClassCount:', sortedClassCount
         return sorted_class_count[0][0]
 
+    # 创建决策树
     def createTree(self, data_set, labels):
         class_list = [example[-1] for example in data_set]
         # 如果数据集的最后一列的第一个值出现的次数=整个集合的数量，也就说只有一个类别，就只直接返回结果就行
@@ -120,7 +126,7 @@ class DecisionTreeApp1(object):
             # print 'myTree', value, myTree
         return myTree
 
-
+    # 分类算法
     def classify(self, input_tree, feat_labels, test_vec):
         # 获取tree的根节点对于的key值
         first_str = input_tree.keys()[0]
@@ -139,6 +145,7 @@ class DecisionTreeApp1(object):
             class_label = value_of_feat
         return class_label
 
+    # 存储树
     def store_tree(self, input_tree, file_name):
         import pickle
         # -------------- 第一种方法 start --------------
@@ -175,7 +182,7 @@ class DecisionTreeApp1(object):
         dtPlot.createPlot(myTree)
 
 
-    def ContactLensesTest(self):
+    def contact_lenses_test(self):
         # 加载隐形眼镜相关的 文本文件 数据
         fr = open('db/3.DecisionTree/lenses.txt')
         # 解析数据，获得 features 数据
