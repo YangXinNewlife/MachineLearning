@@ -2,7 +2,7 @@
 __author__ = 'yangxin'
 
 """
-    将指定特征的特征值等于value 的行剩下列作为子数据集
+    将指定特征的特征值等于value的行剩下列作为子数据集
     split_data_set（通过遍历data_set数据集，求出index对应的column列的值为value的行）
     就是一句index列进行分类，如果index列的数据等于value的时候，就要将index划分到我们创建的新的数据集中
     Args:
