@@ -76,7 +76,7 @@ class DescionTreeApp1(object):
                 bestFeature = i
         return bestFeature
 
-    # 选择出现次数最多的一个结果
+    # 选择出现次数最多的一个类别
     def majority_cnt(self, class_list):
         class_count = {}
         for vote in class_list:
