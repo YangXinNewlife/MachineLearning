@@ -109,13 +109,11 @@ class DescionTreeApp(object):
         fr = open(filename, 'rb')
         return pickle.load(fr)
 
-    # 应用测试一、判断鱼类与非鱼类
     def app_fish(self):
         my_dat, labels = self.create_data_set()
         my_tree = self.create_tree(my_dat, copy.deepcopy(labels))
         dtPlot.create_plot(my_tree)
 
-    # 应用测试二、判断隐形眼镜的类型
     def app_contact_lenses(self):
         fr = open('')
         lenses = [inst.strip().split('\t') for inst in fr.readlines()]
