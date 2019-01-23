@@ -1,15 +1,11 @@
 # -*- coding:utf-8 -*-
 import numpy as np
 __author__ = 'yangxin'
-
-
 """
 贝叶斯公式
 p(xy)=p(x|y)p(y)=p(y|x)p(x)
 p(x|y)=p(y|x)p(x)/p(y)
-"""
 
-"""
 屏蔽社区留言板的侮辱性言论
 """
 
@@ -45,6 +41,7 @@ class SpeechJudgment(object):
         return result
 
     def train_naive_bayes(self, train_mat, train_category):
+        # 训练矩阵长度
         train_doc_num = len(train_mat)
         words_num = len(train_mat[0])
         pos_abusive = np.sum(train_category) / train_doc_num
