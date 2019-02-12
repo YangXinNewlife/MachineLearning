@@ -81,7 +81,7 @@ class SVMSimple(object):
                         continue
 
                     alphas[j] -= label_mat[j] * (ei - ej) / eta
-                    alphas[j] = self.clipAlpha(alphas[j], h, l)
+                    alphas[j] = self.clip_alpha(alphas[j], h, l)
                     if abs(alphas[j] - alpha_jold) < 0.00001:
                         print("j not mobing enough")
                         continue
