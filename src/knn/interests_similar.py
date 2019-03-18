@@ -80,17 +80,29 @@ class InterestsSimilar(object):
         return norm_data_set, ranges, min_vals
 
     def run(self, file_path, k):
-        test_rate = 0.4
+        test_rate = 0.2
+
         dating_data_mat, dating_labels = self.file_to_matrix(file_path)
+
         norm_mat, ranges, min_vals = self.auto_norm(dating_data_mat)
+
         length = norm_mat.shape[0]
+
         num_test_vecs = int(length * test_rate)
         print('num_test_vecs=', num_test_vecs)
+
         error_count = 0
+        count = 0
+
         for i in range(num_test_vecs):
             classifier_result = self.classify_1(norm_mat[i], norm_mat[num_test_vecs : length], dating_labels[num_test_vecs : length], k)
-            error_count += classifier_result != dating_labels[i]
+
+            if classifier_result != dating_labels[i]:
+                error_count += 1
+            else:
+                count += 1
         print("the total error rate is: %f" % (error_count / num_test_vecs))
+        print(count / num_test_vecs)
         print(error_count)
 
 

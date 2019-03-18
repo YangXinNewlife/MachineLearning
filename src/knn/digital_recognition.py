@@ -31,7 +31,6 @@ class DigitalRecognition(object):
         sq_distances = sq_diff_mat.sum(axis=1)
         distances = sq_distances ** 0.5
         sorted_dist_indicies = distances.argsort()
-        #
         class_count = {}
         for i in range(k):
             vote_i_label = labels[sorted_dist_indicies[i]]
@@ -91,6 +90,7 @@ class DigitalRecognition(object):
             img_file = train_file_path + file_name_str
             print(img_file)
             training_mat[i] = self.img_to_vector(img_file)
+
         test_file_list = listdir(test_file_path)
         error_count = 0.0
         test_len = len(test_file_list)
@@ -102,6 +102,7 @@ class DigitalRecognition(object):
             vector_under_test = self.img_to_vector(test_file_img)
             classifier_result = self.classify_1(vector_under_test, training_mat, labels, k)
             if classifier_result != class_num_str:
+                print(file_name_str)
                 error_count += 1.0
         print("\nthe total number of errors is: %d" % error_count)
         print("\nthe total error rate is: %f" % (error_count / float(test_len)))
@@ -111,4 +112,4 @@ if __name__ == '__main__':
     digital_recognition = DigitalRecognition()
     digital_recognition.run("/Users/yangxin_ryan/PycharmProjects/MachineLearning/data/knn/trainingDigits/",
                             "/Users/yangxin_ryan/PycharmProjects/MachineLearning/data/knn/testDigits/",
-                            3)
+                            6)
