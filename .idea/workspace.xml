@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd5cf5f8-08da-4774-8d48-88595c975270" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/regression/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/regression/regressin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/regTrees/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/regTrees/reg_trees.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/knn/interests_friends.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/knn/interests_friends.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/knn/digital_recognition.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/knn/digital_recognition.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/knn/interests_similar.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/knn/interests_similar.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,14 +34,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="regressin.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="regressin.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/regression/regressin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+            <state relative-caret-position="440">
+              <caret line="139" column="26" lean-forward="true" selection-start-line="139" selection-start-column="26" selection-end-line="139" selection-end-column="26" />
               <folding>
                 <element signature="e#50#69#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reg_trees.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/regTrees/reg_trees.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -108,6 +114,8 @@
         <option value="$PROJECT_DIR$/src/knn/interests_similar.py" />
         <option value="$PROJECT_DIR$/data/knn/testDigits/1_54.txt" />
         <option value="$PROJECT_DIR$/src/regression/regressin.py" />
+        <option value="$PROJECT_DIR$/src/regTrees/reg_trees.phy.py" />
+        <option value="$PROJECT_DIR$/src/regTrees/reg_trees.py" />
       </list>
     </option>
   </component>
@@ -121,7 +129,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="338" />
+    <option name="x" value="2" />
+    <option name="y" value="64" />
     <option name="width" value="1680" />
     <option name="height" value="940" />
   </component>
@@ -159,7 +168,7 @@
               <item name="MachineLearning" type="b2602c69:ProjectViewProjectNode" />
               <item name="MachineLearning" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="regression" type="462c0819:PsiDirectoryNode" />
+              <item name="regTrees" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MachineLearning" type="b2602c69:ProjectViewProjectNode" />
@@ -322,17 +331,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1680" height="940" extended-state="6" />
+    <frame x="0" y="23" width="1680" height="940" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50061053" side_tool="true" weight="0.2609727" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3293979" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.26235294" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.2609727" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18681319" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4993895" visible="true" weight="0.2609727" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18864469" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" weight="0.3296875" />
@@ -355,9 +364,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data/knn/testDigits/6_64.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/knn/testDigits/7_57.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -530,11 +536,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/regression/regressin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+        <state relative-caret-position="440">
+          <caret line="139" column="26" lean-forward="true" selection-start-line="139" selection-start-column="26" selection-end-line="139" selection-end-column="26" />
           <folding>
             <element signature="e#50#69#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/regTrees/reg_trees.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
         </state>
       </provider>
     </entry>
