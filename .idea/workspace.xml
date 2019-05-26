@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd5cf5f8-08da-4774-8d48-88595c975270" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/kmeans/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kmeans/kmeans.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/apriori/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/apriori/apriori.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,11 +55,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="kmeans.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="kmeans.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/kmeans/kmeans.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+            <state relative-caret-position="136">
+              <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+              <folding>
+                <element signature="e#51#70#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="apriori.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/apriori/apriori.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="105" column="29" selection-start-line="105" selection-start-column="29" selection-end-line="105" selection-end-column="29" />
+              <folding>
+                <element signature="e#51#70#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -127,6 +142,7 @@
         <option value="$PROJECT_DIR$/src/regTrees/reg_trees.phy.py" />
         <option value="$PROJECT_DIR$/src/regTrees/reg_trees.py" />
         <option value="$PROJECT_DIR$/src/kmeans/kmeans.py" />
+        <option value="$PROJECT_DIR$/src/apriori/apriori.py" />
       </list>
     </option>
   </component>
@@ -140,8 +156,7 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="7" />
-    <option name="y" value="82" />
+    <option name="y" value="311" />
     <option name="width" value="1680" />
     <option name="height" value="887" />
   </component>
@@ -151,7 +166,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -168,13 +182,7 @@
               <item name="MachineLearning" type="b2602c69:ProjectViewProjectNode" />
               <item name="MachineLearning" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="kmeans" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MachineLearning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MachineLearning" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="regTrees" type="462c0819:PsiDirectoryNode" />
+              <item name="apriori" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MachineLearning" type="b2602c69:ProjectViewProjectNode" />
@@ -184,6 +192,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -337,7 +346,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="7" y="82" width="1680" height="887" extended-state="0" />
+    <frame x="0" y="311" width="1680" height="887" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -346,8 +355,8 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3293979" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.26235294" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4993895" weight="0.278481" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20512821" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4993895" weight="0.49620253" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21245421" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" weight="0.3296875" />
@@ -370,9 +379,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data/knn/testDigits/8_20.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/knn/testDigits/8_73.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -556,8 +562,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/kmeans/kmeans.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        <state relative-caret-position="136">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding>
+            <element signature="e#51#70#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/apriori/apriori.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="105" column="29" selection-start-line="105" selection-start-column="29" selection-end-line="105" selection-end-column="29" />
+          <folding>
+            <element signature="e#51#70#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
