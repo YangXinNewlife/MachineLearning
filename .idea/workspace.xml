@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd5cf5f8-08da-4774-8d48-88595c975270" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/apriori/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/apriori/apriori.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fp_growth/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fp_growth/fp_growth.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pca/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pca/pca.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,11 +69,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="apriori.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="apriori.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/apriori/apriori.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="105" column="29" selection-start-line="105" selection-start-column="29" selection-end-line="105" selection-end-column="29" />
+            <state relative-caret-position="1581">
+              <caret line="94" column="13" selection-start-line="94" selection-start-column="13" selection-end-line="94" selection-end-column="13" />
+              <folding>
+                <element signature="e#51#70#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fp_growth.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fp_growth/fp_growth.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="333">
+              <caret line="121" lean-forward="true" selection-start-line="121" selection-end-line="121" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pca.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pca/pca.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="39" lean-forward="true" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
               <folding>
                 <element signature="e#51#70#0" expanded="true" />
               </folding>
@@ -94,6 +117,7 @@
       <find>createPlot</find>
       <find>0</find>
       <find>best_clust_ass</find>
+      <find>tree_node</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -143,6 +167,8 @@
         <option value="$PROJECT_DIR$/src/regTrees/reg_trees.py" />
         <option value="$PROJECT_DIR$/src/kmeans/kmeans.py" />
         <option value="$PROJECT_DIR$/src/apriori/apriori.py" />
+        <option value="$PROJECT_DIR$/src/fp_growth/fp_growth.py" />
+        <option value="$PROJECT_DIR$/src/pca/pca.py" />
       </list>
     </option>
   </component>
@@ -156,7 +182,7 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="311" />
+    <option name="y" value="79" />
     <option name="width" value="1680" />
     <option name="height" value="887" />
   </component>
@@ -182,7 +208,13 @@
               <item name="MachineLearning" type="b2602c69:ProjectViewProjectNode" />
               <item name="MachineLearning" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="apriori" type="462c0819:PsiDirectoryNode" />
+              <item name="fp_growth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MachineLearning" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MachineLearning" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pca" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MachineLearning" type="b2602c69:ProjectViewProjectNode" />
@@ -346,7 +378,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="311" width="1680" height="887" extended-state="0" />
+    <frame x="0" y="79" width="1680" height="887" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -355,8 +387,8 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3293979" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.26235294" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4993895" weight="0.49620253" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21245421" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4993895" visible="true" weight="0.35696203" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21733822" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" weight="0.3296875" />
@@ -379,12 +411,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data/knn/testDigits/8_73.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/knn/testDigits/9_22.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/knn/testDigits/9_73.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -572,8 +598,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/apriori/apriori.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="105" column="29" selection-start-line="105" selection-start-column="29" selection-end-line="105" selection-end-column="29" />
+        <state relative-caret-position="1581">
+          <caret line="94" column="13" selection-start-line="94" selection-start-column="13" selection-end-line="94" selection-end-column="13" />
+          <folding>
+            <element signature="e#51#70#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fp_growth/fp_growth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="121" lean-forward="true" selection-start-line="121" selection-end-line="121" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pca/pca.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="39" lean-forward="true" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
           <folding>
             <element signature="e#51#70#0" expanded="true" />
           </folding>
